@@ -23,6 +23,7 @@ COPY licenses/ /usr/local/share/licenses/buildpacks/
 # xz-utils is required to install nodejs/runtime.
 RUN apt-get update && apt-get install -y --no-install-recommends \
   build-essential \
+  curl \
   git \
   python3 \
   tar \

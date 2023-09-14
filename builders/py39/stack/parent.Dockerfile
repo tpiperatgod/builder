@@ -28,6 +28,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libicu70 \
   libc++1-12 \
   tzdata \
+  libonig5  \
+  libsqlite3-0 \
+  libxml2 \
+  libyaml-0-2 \
+  locales \
+  openssl \
+  ca-certificates \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 LABEL io.buildpacks.stack.id=${stack_id}

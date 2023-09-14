@@ -12,12 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-ARG from_image
-FROM ${from_image}
+FROM busybox:1.35
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-  tzdata \
-  && apt-get clean && rm -rf /var/lib/apt/lists/*
+ARG cnb_uid=1000
+ARG cnb_gid=1000
+ARG stack_id="openfunction.py39"
+LABEL io.buildpacks.stack.id=${stack_id}
 
-ENV PORT 8080
-USER cnb
+RUN adduser -u 1000 -D cnb cnb
+
+ENV CNB_USER_ID=${cnb_uid}
+ENV CNB_GROUP_ID=${cnb_gid}
+ENV CNB_STACK_ID=${stack_id}

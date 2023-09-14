@@ -43,6 +43,8 @@ tar xf "$LICENSES" -C "$TEMP/licenses"
 
 echo "> Building base py39common image"
 docker build -t "py39common" - < "${DIR}/parent.Dockerfile"
+echo "> Building openfunctiondev/buildpacks-py39-busybox-run:$TAG"
+docker build -t "openfunctiondev/buildpacks-py39-busybox-run:$TAG" - < "${DIR}/run.busybox.Dockerfile"
 echo "> Building openfunctiondev/buildpacks-py39-run:$TAG"
 docker build --build-arg "from_image=py39common" -t "openfunctiondev/buildpacks-py39-run:$TAG" - < "${DIR}/run.Dockerfile"
 echo "> Building openfunctiondev/buildpacks-py39-build:$TAG"
