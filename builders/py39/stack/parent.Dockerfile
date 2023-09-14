@@ -12,21 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM openfunctiondev/ubuntu_18_0_4
+FROM ubuntu:22.04
 
 ARG cnb_uid=1000
 ARG cnb_gid=1000
-ARG stack_id="google"
+ARG stack_id="openfunction.py39"
 
 # Required by python/runtime: libexpat1, libffi6, libmpdecc2.
 # Required by dotnet/runtime: libicu60
 # Required by go/runtime: tzdata (Go may panic without /usr/share/zoneinfo)
 RUN apt-get update && apt-get install -y --no-install-recommends \
   libexpat1 \
-  libffi6 \
-  libmpdec2 \
-  libicu60 \
-  libc++1-9 \
+  libffi7 \
+  libmpdec3 \
+  libicu70 \
+  libc++1-12 \
   tzdata \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -42,10 +42,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   zlib1g-dev \
   libssl-dev && \
   apt-get clean && rm -rf /var/lib/apt/lists/* && \
-  cd /opt && wget https://www.python.org/ftp/python/3.9.5/Python-3.9.5.tgz && tar xzf Python-3.9.5.tgz && cd Python-3.9.5 && \
-  sed -i '214,217s/^#//' Modules/Setup && /bin/bash -c "./configure && make -j8 && make -j8 install" && \
-  ln -sf /usr/local/bin/python3.9 /usr/bin/python3 && python3 -m pip install --upgrade pip setuptools wheel && \
-  cd /opt && rm -rf Python-3.9.5
+  cd /opt && wget --no-check-certificate https://www.python.org/ftp/python/3.9.17/Python-3.9.17.tgz && tar xzf Python-3.9.17.tgz && cd Python-3.9.17 && \
+#  sed -i '214,217s/^#//' Modules/Setup && \
+  /bin/bash -c "./configure && make -j8 && make -j8 install" && \
+  ln -sf /usr/local/bin/python3.17 /usr/bin/python3 && python3 -m pip install --upgrade pip setuptools wheel && \
+  cd /opt && rm -rf Python-3.9.17
 
 ENV CNB_USER_ID=${cnb_uid}
 ENV CNB_GROUP_ID=${cnb_gid}

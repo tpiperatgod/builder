@@ -1,0 +1,9 @@
+api = "0.7"
+
+[buildpack]
+id = "openfunction.python.of-functions-framework"
+version = "0.2.0"
+name = "Python - OpenFunction Functions Framework"
+
+[[stacks]]
+id = "openfunction.py39"

@@ -29,10 +29,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   zip \
   unzip \
   xz-utils \
-  g++-8 \
-  gcc-8 \
+  g++-10 \
+  gcc-10 \
   zlib1g-dev \
-  libstdc++-8-dev \
+  libstdc++-10-dev \
   pkg-config \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 

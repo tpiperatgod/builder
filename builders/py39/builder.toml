@@ -9,8 +9,8 @@ description = "Ubuntu 18 base image with buildpacks for Python"
   uri = "python/pip.tgz"
 
 [[buildpacks]]
-  id = "google.python.functions-framework"
-  uri = "python/functions_framework.tgz"
+  id = "openfunction.python.of-functions-framework"
+  uri = "python/of_functions_framework.tgz"
 
 [[buildpacks]]
   id = "google.python.missing-entrypoint"
@@ -27,7 +27,7 @@ description = "Ubuntu 18 base image with buildpacks for Python"
 # Python functions.
 [[order]]
   [[order.group]]
-    id = "google.python.functions-framework"
+    id = "openfunction.python.of-functions-framework"
 
   [[order.group]]
     id = "google.python.pip"
@@ -56,7 +56,7 @@ description = "Ubuntu 18 base image with buildpacks for Python"
 
 # Currently built with //builders/py39/stack/stack:build.
 [stack]
-  id = "google"
+  id = "openfunction.py39"
   build-image = "openfunctiondev/buildpacks-py39-build:v1"
   run-image = "openfunctiondev/buildpacks-py39-run:v1"
 

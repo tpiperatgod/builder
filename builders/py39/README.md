@@ -3,7 +3,9 @@
 ### Build py39 stack
 
 ```shell
-bazel run //builders/py39/stack:build
+bazelisk run //builders/py39/stack:build
+# if you are using macOS
+bazelisk run --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 //builders/py39/stack:build
 ```
 
 This command creates two images:
@@ -16,7 +18,7 @@ openfunctiondev/buildpacks-py39-build:v1
 ### Build py39 builder
 
 ```shell
-bazel build //builders/py39:builder.image
+bazelisk build //builders/py39:builder.image
 ```
 
 This command creates one image:
@@ -35,7 +37,7 @@ docker push <your container registry>/py39:v1
 ### Test
 
 ```shell
-bazel test //builders/py39/acceptance/...
+bazelisk test //builders/py39/acceptance/...
 ```
 
 Output example:

@@ -7,3 +7,6 @@ name = "Python - pip"
 
 [[stacks]]
 id = "google"
+
+[[stacks]]
+id = "openfunction.py39"

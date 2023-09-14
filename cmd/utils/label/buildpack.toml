@@ -80,6 +80,9 @@ id = "google.ruby27"
 [[stacks]]
 id = "openfunction.ruby26"
 
+[[stacks]]
+id = "openfunction.py39"
+
 [types]
 build = true
 launch = true

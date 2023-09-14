@@ -17,7 +17,7 @@ package acceptance
 
 const (
 	// Buildpack identifiers used to verify that buildpacks were or were not used.
-	entrypoint      = "google.config.entrypoint"
-	pythonFF        = "google.python.functions-framework"
-	pythonPIP       = "google.python.pip"
+	entrypoint = "google.config.entrypoint"
+	pythonFF   = "google.python.of-functions-framework"
+	pythonPIP  = "google.python.pip"
 )

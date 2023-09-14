@@ -10,7 +10,7 @@ builder(
     ],
     groups = {
         "python": [
-            "//cmd/python/functions_framework:functions_framework.tgz",
+            "//cmd/python/of_functions_framework:of_functions_framework.tgz",
             "//cmd/python/missing_entrypoint:missing_entrypoint.tgz",
             "//cmd/python/pip:pip.tgz",
         ],
